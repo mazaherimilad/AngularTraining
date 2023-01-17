@@ -3,3 +3,5 @@
 auth.service.ts
 province.service.ts
 node_modules
+notes/
+**/*todo.md
