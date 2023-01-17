@@ -1,0 +1,36 @@
+<div class="container vh-100">
+    <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+    <div class="row justify-content-center h-100">
+        <div class="card my-auto shadow">
+            <div class="card-body px-5">
+                <div class="text-center">
+                    <fa-icon [icon]="faLock" class="fa-3x"></fa-icon>
+                </div>
+                <div class="text-center">
+                    <h2>Welcome</h2>
+                </div>
+                <p style="color: lightslategray; text-align: center;">
+                    Please enter your login details
+                </p>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="name" class="form-control" formControlName="name"
+                            name="name" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="fName" placeholder="fname" class="form-control" formControlName="fName"
+                            name="fName" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="fiscale" placeholder="codiceFiscale" class="form-control"
+                            formControlName="codiceFiscale" name="fiscale" />
+                    </div>
+                    <input type="submit" class="btn btn-primary w-100" value="Login" name="">
+                </form>
+            </div>
+            <div class="card-footer text-right">
+                <small><a routerLink="../forgot-password">Forgot Password</a></small>
+            </div>
+        </div>
+    </div>
+</div>

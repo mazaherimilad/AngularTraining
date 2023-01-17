@@ -1,0 +1,55 @@
+<div class="container pt-5 pb-5 d-flex flex-column align-items-center">
+  <div class="col-12">
+
+    <div class="card col-12">
+      <div class="card-header">
+        <h4 class="card-title text-center">Regione</h4>
+      </div>
+      <div class="card-body d-flex justify-content-center">
+        <select [(ngModel)]="regioniSelected" (ngModelChange)="onRegioniSelected($event)">
+          <option *ngFor="let region of listRegioni" [value]="region.kcIstat">{{ region.nome }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="card col-12">
+      <div class="card-header">
+        <h4 class="card-title text-center">Province</h4>
+      </div>
+      <div class="card-body d-flex justify-content-center">
+        <select *ngIf="regioniSelected" [(ngModel)]="provinceSelected" (ngModelChange)="onProvinceSelected($event)">
+          <option *ngFor="let province of listProvince" [value]="province.ksiglaProv">{{ province.nome }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="card col-12">
+      <div class="card-header">
+        <h4 class="card-title text-center">Comune</h4>
+      </div>
+      <div class="card-body d-flex justify-content-center">
+        <select *ngIf="regioniSelected && provinceSelected" [(ngModel)]="comuneSelected" (ngModelChange)="onComuneSelected($event)">
+          <option *ngFor="let comune of listComuni" [value]="comune.kcCatastale">{{ comune.nome }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="card col-12">
+      <div class="card-header">
+        <h4 class="card-title text-center">CAP</h4>
+      </div>
+      <div class="card-body d-flex justify-content-center">
+        <select *ngIf="regioniSelected && provinceSelected && comuneSelected" [(ngModel)]="CAPSelected">
+          <option *ngFor="let cap of listCap" [value]="cap.kCap">{{ cap.kCap }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="card col-12">
+ 
+      <div class="card-body d-flex justify-content-center">
+        <button  class="btn btn-primary large" (click)="showInfo()">submit</button>
+      </div>
+      <div class="card-body d-flex justify-content-center">
+        <p  *ngIf="showDetails">Region: {{regioniSelected}}  Province: {{provinceSelected}} Comune:{{comuneSelected}}   CAP: {{CAPSelected}} - REGISTERED</p>
+      </div>
+
+    </div>
+  </div>
+</div>
