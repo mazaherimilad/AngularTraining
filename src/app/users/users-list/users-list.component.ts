@@ -7,10 +7,10 @@ import { UserDataService } from 'src/app/services/data/user-data.service';
 
 @Component({
   selector: 'app-users-list',
-  templateUrl: './services.component.html',
-  styleUrls: ['./services.component.css']
+  templateUrl: './users-list.component.html',
+  styleUrls: ['./users-list.component.css']
 })
-export class ServicesComponent implements OnInit {
+export class UsersListComponent implements OnInit {
   users: Observable<any> | undefined;
   user:Observable<any> | undefined;
   constructor(private userService: UserDataService, private router: Router) { }

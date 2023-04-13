@@ -1,63 +1,57 @@
-<div class="container pt-5 pb-5">
-    <div class="col-12">
-        <div class="d-flex flex-wrap justify-content-between">
-            <div class="card shadow mt-2">
-                <div class="card-body">
-                    <h5 class="card-title">Services Component</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card shadow mt-2">
-                <div class="card-body">
-                    <h5 class="card-title">Services Component</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card shadow mt-2">
-                <div class="card-body">
-                    <h5 class="card-title">Services Component</h5>
-                    <p class="card-text">Content itself is what the user derives value from. Thus, "content" can refer
-                        to the information provided through the medium, the way in which the information was presented,
-                        as well as the added features included in the medium in which that information was delivered.
-                        The medium, however, provides little to no value to the end-user without the information and
-                        experiences that make up the content.</p>
-                    <a class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card shadow mt-2">
-                <div class="card-body">
-                    <h5 class="card-title">Services Component</h5>
-                    <p class="card-text">Content itself is what the user derives value from. Thus, "content" can refer
-                        to the information provided through the medium, the way in which the information was presented,
-                        as well as the added features included in the medium in which that information was delivered.
-                        The medium, however, provides little to no value to the end-user without the information and
-                        experiences that make up the content.</p>
-                    <a class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card shadow mt-2">
-                <div class="card-body">
-                    <h5 class="card-title">Services Component</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card shadow mt-2">
-                <div class="card-body">
-                    <h5 class="card-title">Services Component</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card shadow mt-2">
-                <div class="card-body">
-                    <h5 class="card-title">Services Component</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Users List</h2>
     </div>
-</div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lname</th>
+            <th>codice Fiscale</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users | async">
+            <td>{{user.name}}</td>
+            <td>{{user.lname}}</td>
+            <td>{{user.codiceFiscale}}</td>
+            <td><button (click)="removeUser(user.id)" class="btn btn-danger">Delete</button>
+              <button (click)="editUser(user.id)" class="btn btn-primary" style="margin-left: 10px">Update</button>
+  
+                <button (click)="userDetails(user.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h2>Users List</h2>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lname</th>
+                <th>codice Fiscale</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users | async">
+                <td>{{user.name}}</td>
+                <td>{{user.lname}}</td>
+                <td>{{user.codiceFiscale}}</td>
+                <td><button (click)="removeUser(user.id)" class="btn btn-danger">Delete</button>
+                  <button (click)="editUser(user.id)" class="btn btn-primary" style="margin-left: 10px">Update</button>
+      
+                    <button (click)="userDetails(user.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        

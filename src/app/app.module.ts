@@ -14,6 +14,11 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { ProvinceService } from './services/province.service';
+import { UsersListComponent } from './users/users-list/users-list.component';
+import { UsersUpdateComponent } from './users/users-update/users-update.component';
+import { UsersCreateComponent } from './users/users-create/users-create.component';
+import { UserDataService } from './services/data/user-data.service';
+import { UsersDetailsComponent } from './users/users-details/users-details.component';
 
 
 
@@ -22,7 +27,11 @@ import { ProvinceService } from './services/province.service';
   declarations: [
     AppComponent,
     LoginComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UsersListComponent,
+    UsersUpdateComponent,
+    UsersCreateComponent,
+    UsersDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +41,7 @@ import { ProvinceService } from './services/province.service';
     ReactiveFormsModule,CommonModule,BrowserModule,HttpClientModule,CommonModule,FormsModule
     
   ], schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [AuthService,{
+  providers: [AuthService,UserDataService,{
     provide: HTTP_INTERCEPTORS,
     useClass: ProvinceService,
     multi: true
